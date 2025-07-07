@@ -19,7 +19,7 @@ export default function Home() {
       method: "POST",
       body: formData,
     });
-    alert("File uploaded successfully!");
+    // alert("File uploaded successfully!");
   };
 
   const handleAsk = async () => {
