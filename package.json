@@ -10,12 +10,17 @@
   },
   "dependencies": {
     "@langchain/community": "^0.3.48",
+    "@langchain/core": "^0.3.62",
+    "@langchain/ollama": "^0.2.3",
     "@langchain/openai": "^0.5.18",
+    "@langchain/textsplitters": "^0.1.0",
     "chromadb": "^3.0.6",
     "formidable": "^3.5.4",
     "langchain": "^0.3.29",
     "next": "15.3.5",
     "openai": "^5.8.2",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.3.93",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

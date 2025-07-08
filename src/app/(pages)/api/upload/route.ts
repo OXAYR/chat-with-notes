@@ -2,6 +2,9 @@
 
 // pages/api/upload.ts
 
+import fs from "fs";
+import path from "path";
+
 export const dynamic = "force-dynamic"; // (optional, for file uploads)
 
 export async function POST(request: Request) {
@@ -15,8 +18,18 @@ export async function POST(request: Request) {
     });
   }
 
-  // Example: Read file contents (for .txt), or save to disk, etc.
-  // For now, just return a success message
+  // Ensure tmp directory exists
+  const tmpDir = path.join(process.cwd(), "tmp");
+  if (!fs.existsSync(tmpDir)) {
+    fs.mkdirSync(tmpDir);
+  }
+
+  // Save the file to disk
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  const filePath = path.join(tmpDir, file.name);
+  fs.writeFileSync(filePath, buffer);
+
   return new Response(JSON.stringify({ message: "Uploaded successfully" }), {
     status: 200,
     headers: { "Content-Type": "application/json" },
